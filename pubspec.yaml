@@ -1,0 +1,19 @@
+name: app_tracking_events
+description: "App Tracking Events is a Flutter library that offers a unified interface for logging events and errors, allowing integration with multiple service providers, such as Firebase. The library defines clear interfaces that ensure consistency and ease of use. With SearsLogger, developers can log custom events, application opens, authentications, and network errors, simplifying the application monitoring and analysis process."
+version: 1.0.0
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_crashlytics: ^4.0.1
+  firebase_analytics: ^11.0.1
+  firebase_core: ^3.1.0
+ 
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
