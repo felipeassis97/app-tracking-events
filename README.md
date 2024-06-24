@@ -7,14 +7,15 @@ App tracking events is a Flutter library that offers a unified interface for log
     - Local
         ```
         dependencies:
-          sears_logger:
+          app_tracking_events:
             git:
-              url: https://github.com/yourusername/sears_logger.git
+              url: https://github.com/felipeassis97/app-tracking-events.git
+              ref: master
         ```
     - Remote
         ```
         dependencies:
-          sears_logger:
+          app_tracking_events:
             path: ../projectPath
         ```
 
@@ -22,14 +23,14 @@ App tracking events is a Flutter library that offers a unified interface for log
 - #### Importing the Package
    - To use the package, import it into your Dart file:
         ```
-        import 'package:sears_logger/sears_logger.dart';
+        import 'package:app_tracking_events/app_tracking_events.dart';
         ```
 
 - #### Creating an Instance
-    - You can create an instance of ISearsLogger using any available provider. Below is an example using Firebase:
+    - You can create an instance of ITrackingEvents using any available provider. Below is an example using Firebase:
     
         ```
-        final ISearsLogger logger = FirebaseMethod(
+        final ITrackingEvents logger = FirebaseMethod(
             firebaseOptions: FirebaseOptions(firebaseOptions: ...),
         );
         ```
@@ -41,14 +42,14 @@ App tracking events is a Flutter library that offers a unified interface for log
         final getIt = GetIt.instance;
         
         void setup() {
-          getIt.registerLazySingleton<ISearsLogger>(
+          getIt.registerLazySingleton<ITrackingEvents>(
             () => FirebaseMethod(firebaseOptions: ...),
           );
         }
         ```
 ### ➡ Usage
 - #### **Analytics**
-   - The ISearsAnalytics interface provides methods to log various types of events:
+   - The ITrackingAnalytics interface provides methods to log various types of events:
    
         ```
         // Log a custom event
@@ -80,7 +81,7 @@ App tracking events is a Flutter library that offers a unified interface for log
         ```
 
 - #### **Crashlytics**
-   - The ISearsCrashlytics interface provides methods to record errors:
+   - The ITrackingCrashlytics interface provides methods to record errors:
 
         ```
         // Record a generic error
