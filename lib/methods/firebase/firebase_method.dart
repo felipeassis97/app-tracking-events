@@ -3,7 +3,9 @@ import 'package:app_tracking_events/core/i_tracking_events.dart';
 import 'package:app_tracking_events/core/i_tracking_analytics.dart';
 import 'package:app_tracking_events/core/i_tracking_crashlytics.dart';
 import 'package:app_tracking_events/methods/firebase/tracking_firebase_analytics.dart';
+import 'package:app_tracking_events/methods/firebase/credentials/firebase_options.dart';
 import 'package:app_tracking_events/methods/firebase/tracking_firebase_crashlytics.dart';
+import 'package:app_tracking_events/methods/firebase/credentials/firebase_credentials.dart';
 
 /// ### 🔸 DebugView for Analytics
 /// Typically, the events recorded by your application are batched over a period of approximately one hour and uploaded together.
@@ -58,14 +60,16 @@ import 'package:app_tracking_events/methods/firebase/tracking_firebase_crashlyti
 /// #### __For more informations,__ [Consult the official documentation  🔗 ](https://firebase.google.com/docs/crashlytics/test-implementation?authuser=0&platform=flutter)
 
 class FirebaseMethod implements ITrackingEvents {
-  final FirebaseOptions firebaseOptions;
+  final FirebaseCredentials credentials;
 
-  FirebaseMethod({required this.firebaseOptions}) {
+  FirebaseMethod({required this.credentials}) {
     _initialize();
   }
 
   Future<void> _initialize() async {
-    await Firebase.initializeApp(options: firebaseOptions);
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform(credentials),
+    );
   }
 
   @override
